@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0F1217;
+  --header-bg: #18181b;
+  --header-menu: #121214;
+  --foreground: #f8fafc;
+  --input: #f8fafc;
+  --primary: #307cea;
+  --sucess: #085C1C;
+  --pending: #742D31;
+  --payment-bg: #047857;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-header-bg: var(--header-bg);
+  --color-header-menu: var(--header-menu);
+  --color-foreground: var(--foreground);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-sucess: var(--sucess);
+  --color-pending: var(--pending);
+  --color-payment-bg: var(--payment-bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
