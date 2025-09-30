@@ -32,8 +32,6 @@ const tabs: Tab[] = [
     icon: EntryIcon,
     content:
       <form className="flex flex-col gap-5">
-        <h2 className="text-[2rem]">Entrada</h2>
-
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
@@ -102,7 +100,9 @@ function Home() {
 
       {/* Menu do cabeçalho */}
       {isOpenMenu &&
-        <div className={`absolute w-90 h-90 right-0 top-[100px] bg-header-menu`}>
+        <div className={`absolute w-70 right-0 md:top-[100px] top-[170px] p-5 flex flex-col gap-2 rounded-bl-sm text-[1.2rem] bg-header-menu`}>
+          <div>Configurações</div>
+          <div>Sair</div>
         </div>
       }
 
@@ -115,9 +115,9 @@ function Home() {
         ))}
       </div>
 
-      <div className="md:p-10 p-6">
+      <div className="p-6">
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2">
 
           {/* Menu tab (Desktop ou telas grandes) */}
           <div className="hidden h-10 my-5 md:flex justify-start gap-10 text-[1.4rem] border-b-2 border-b-foreground/10">
@@ -128,9 +128,12 @@ function Home() {
           </div>
 
           {/* Conteudo */}
-          <div className="md:mb-0 mb-20">
-            {tabs.map(tab => (tabSelected == tab.type && tab.content))}
-          </div>
+          {tabs.map(tab => (tabSelected == tab.type &&
+            <>
+              <h2 className="text-[2rem]">{tab.name}</h2>
+              {tab.content}
+            </>
+          ))}
         </div>
       </div>
     </div>

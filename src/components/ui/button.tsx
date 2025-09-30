@@ -4,7 +4,7 @@ type ButtonProps =
     }
 function Button({ text, ...props }: ButtonProps) {
     return (
-        <button className="w-full max-w-[400px] h-13 px-4 rounded-md font-semibold text-[1.3rem] bg-primary text-foreground" {...props}>
+        <button className="w-full max-w-[400px] h-13 px-4 rounded-md font-semibold text-[1.3rem] bg-primary text-foreground hover:cursor-pointer hover:opacity-90" {...props}>
             {text}
         </button>
     )
