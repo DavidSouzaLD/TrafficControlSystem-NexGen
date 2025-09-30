@@ -32,14 +32,14 @@ const tabs: Tab[] = [
     icon: EntryIcon,
     content:
       <form className="flex flex-col gap-5">
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-5">
-            <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <Label text="Placa" />
               <Input type="text" placeholder="ABC-1234" required />
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <Label text="Número de Passageiros" />
               <Input type="number" min={0} max={4} placeholder="0 a 4" required />
             </div>
@@ -120,7 +120,7 @@ function Home() {
         <div className="flex flex-col gap-2">
 
           {/* Menu tab (Desktop ou telas grandes) */}
-          <div className="hidden h-10 my-5 md:flex justify-start gap-10 text-[1.4rem] border-b-2 border-b-foreground/10">
+          <div className="hidden h-10 mb-10 md:flex justify-start gap-10 text-[1.4rem] border-b-2 border-b-foreground/10">
             {tabs.map((tab, index) => (
               <button key={index} className={`h-10 hover:border-b-2 hover:border-b-primary hover:cursor-pointer
                ${tabSelected == tab.type && "border-b-2 border-b-primary"}`} onClick={() => setTabSelected(tab.type)}>{tab.name}</button>
@@ -129,10 +129,12 @@ function Home() {
 
           {/* Conteudo */}
           {tabs.map(tab => (tabSelected == tab.type &&
-            <>
-              <h2 className="text-[2rem]">{tab.name}</h2>
-              {tab.content}
-            </>
+            <div className="flex flex-col justify-center items-center">
+              <h2 className="min-w-[340px] text-[2rem] text-left">{tab.name}</h2>
+              <div className="min-w-[340px] ">
+                {tab.content}
+              </div>
+            </div>
           ))}
         </div>
       </div>
